@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row">
+    <div class="list-group col-md-4" >
+      <a routerLink="/login" class="list-group-item list-group-item-action" routerLinkActive="active">
+        Login Here
+      </a>
+      <a routerLink="/registration" class="list-group-item list-group-item-action" routerLinkActive="active">Register Here</a>
+      <a routerLink="/customer" class="list-group-item list-group-item-action" routerLinkActive="active">Customer DashBoard</a>
+
+      <!-- <a routerLink="/registration" class="list-group-item list-group-item-action" routerLinkActive="active">Get Customer</a> -->
+    </div>
+
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

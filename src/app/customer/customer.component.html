@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+     <!-- <div class="card">
+        
+      
+     </div> -->
+     <button (click)="LogOut()" class="btn btn-danger m-2 float-right">LogOut</button>
+      <h1 class="text-center">Customer Details</h1>
+      <form action="" #productForm="ngForm">
+        <div class="form-group">
+          <label for="firstName">Enter Your First Name</label>
+          <input type="text" class="form-control" id="firstName" required [(ngModel)]="product.FirstName"
+            name="FirstName" #firstName="ngModel" autocomplete="off">
+          <div *ngIf="firstName.touched &&  !firstName.valid" class="alert alert-danger">
+            First Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="LastName">Enter Your Last Name</label>
+          <input type="text" class="form-control" id="lastName" required [(ngModel)]="product.LastName" name="LastName" #lastName="ngModel" autocomplete="off">
+          <div *ngIf="lastName.touched && !lastName.valid" class="alert alert-danger">
+            Last Name is required
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Enter Your Email ID</label>
+          <input type="text" class="form-control" id="email" required [(ngModel)]="product.Email" name="Email" #email="ngModel" email autocomplete="off">
+          <div *ngIf="email.touched && !email.valid" class="alert alert-danger">
+              Email is required
+              </div>
+        </div>
+        <div class="form-group">
+          <label for="city">Enter Your City</label>
+          <input type="text" class="form-control" id="city" required [(ngModel)]="product.City" name="City" #city="ngModel" autocomplete="off">
+          <div *ngIf="city.touched && !city.valid" class="alert alert-danger" >
+              City is required
+              </div>
+        </div>
+
+        <button type="subit" class="btn btn-success" [disabled]="!productForm.form.valid" (click)="submit();productForm.reset()">Submit</button>
+      </form>
+    </div>
+
+    
+    <div class="col-md-10 offset-md-1">
+      <br>
+      <h2 class="text-center">List of Customers</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>Email ID</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cust of customers">
+            <td>{{cust.Id}}</td>
+            <td>{{cust.FirstName}}</td>
+            <td>{{cust.LastName}}</td>
+            <td>{{cust.City}}</td>
+            <td>{{cust.Email}}</td>
+            <td>
+              <button class="btn btn-info mr-2" (click)="Update(cust)">Edit</button>
+              <button class="btn btn-danger" (click)="Delete(cust)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </div> -->
+
+  </div>
+
+</div>
